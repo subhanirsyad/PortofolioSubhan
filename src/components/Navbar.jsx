@@ -7,7 +7,7 @@ const links = [
   { href: '#home', label: 'Home' },
   { href: '#about', label: 'Tentang' },
   { href: '#expertise', label: 'Keahlian' },
-  { href: '#projects', label: 'Proyek' },
+  { href: '#projects', label: 'Projek' },
 ]
 
 export default function Navbar() {

@@ -95,7 +95,7 @@ export default function Projects() {
       <Container>
         <div className="flex justify-between items-end mb-12" data-aos="fade-left">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-2">Proyek Unggulan</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-2">Projek</h2>
             <p className="text-secondary">Penerapan Data Science pada kasus dunia nyata.</p>
           </div>
         </div>
@@ -165,7 +165,7 @@ export default function Projects() {
         <div className="mt-20" data-aos="fade-up">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
             <div>
-              <h3 className="text-2xl md:text-3xl font-bold mb-2">Semua Project di GitHub</h3>
+              <h3 className="text-2xl md:text-3xl font-bold mb-2">Projek</h3>
               <p className="text-secondary">
                 Daftar repository akan otomatis sinkron dari GitHub ({GITHUB_USERNAME}).
               </p>

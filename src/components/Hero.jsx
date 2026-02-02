@@ -40,7 +40,7 @@ export default function Hero() {
               href="#projects"
               className="px-7 py-3 bg-white text-darker font-bold rounded-full hover:bg-gray-200 transition transform hover:-translate-y-1"
             >
-              Lihat Proyek
+              Lihat Projek
             </a>
             <a
               href={profile.links.linkedin}
