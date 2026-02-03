@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Subhan Portfolio (React + CSS)
 
 Single-page portfolio built with **React (Vite)** and **custom CSS** (tanpa Tailwind).
@@ -27,3 +28,6 @@ Langkah:
 
 ## Quick edit links
 Edit object `LINKS` di `src/App.jsx`.
+=======
+
+>>>>>>> 63f4338ed91b9d02f7e28969330e2c3f439a111d
