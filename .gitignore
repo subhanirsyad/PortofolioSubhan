@@ -1,5 +1,3 @@
-node_modules
-dist
+# Optional
 .DS_Store
 Thumbs.db
-.env
