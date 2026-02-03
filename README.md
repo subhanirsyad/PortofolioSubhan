@@ -1,23 +1,29 @@
-# Subhan Portfolio (Static)
+# Subhan Portfolio (React + CSS)
 
-Portfolio web statis (HTML + Tailwind CDN) — siap di-deploy via GitHub Pages / Vercel / Netlify.
+Single-page portfolio built with **React (Vite)** and **custom CSS** (tanpa Tailwind).
 
-## Struktur
-- `index.html` — halaman utama
+## Local run
+```bash
+npm install
+npm run dev
+```
 
-## Jalankan lokal
-Cukup buka `index.html` di browser, atau pakai Live Server (VSCode).
+## Build
+```bash
+npm run build
+npm run preview
+```
 
-## Deploy via GitHub Pages
-1. Buat repo baru di GitHub (misal: `subhan-portfolio`).
-2. Upload semua file (atau push via git).
-3. Masuk **Settings → Pages**
-4. Pada **Build and deployment** pilih:
-   - **Source:** Deploy from a branch
-   - **Branch:** `main` (atau `master`)
-   - **Folder:** `/ (root)`
-5. Simpan. Link website akan muncul di bagian Pages.
+## Deploy to GitHub Pages (recommended)
+Repo ini sudah termasuk **GitHub Actions workflow** untuk build & deploy ke **GitHub Pages**.
 
-## Catatan
-- Semua asset eksternal memakai CDN (Tailwind, Font Awesome, AOS, Typed.js).
-- Link penting bisa kamu edit cepat di komentar **QUICK LINKS** di bagian atas `index.html`.
+Langkah:
+1. Push repo ini ke GitHub (branch `main`).
+2. Masuk **Settings → Pages**
+3. Pada **Build and deployment**, pilih **Source: GitHub Actions**
+4. Push commit apa pun (atau jalankan manual) → otomatis deploy.
+
+> Note: `vite.config.js` pakai `base: './'` jadi aman walau nama repo berbeda.
+
+## Quick edit links
+Edit object `LINKS` di `src/App.jsx`.
