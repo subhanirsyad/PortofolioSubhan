@@ -5,7 +5,7 @@ Halo! Saya **Subhan Irsyaduddien Alhaq**, seorang **data enthusiast** dengan min
 🔗 **Live Demo:** https://portofolio-subhan-delta.vercel.app  
 💼 **GitHub:** https://github.com/subhanirsyad  
 🔗 **LinkedIn:** https://www.linkedin.com/in/subhan-irsyaduddien-alhaq
-📄 **CV/Resume:** [(CV Saya)](https://drive.google.com/file/d/1rtJ9J5WoFs4yyV11Ik6-NaoM7napnvkB/view?usp=drive_link)
+📄 **CV/Resume:** https://drive.google.com/file/d/1rtJ9J5WoFs4yyV11Ik6-NaoM7napnvkB/view?usp=drive_link
 
 ---
 
@@ -61,5 +61,5 @@ Kamu bisa isi bagian ini dengan 3–6 proyek terbaikmu:
 
 ## Kontak
 Kalau mau diskusi, kolaborasi, atau feedback:
-- LinkedIn: [(LinkedIn)](https://drive.google.com/file/d/1rtJ9J5WoFs4yyV11Ik6-NaoM7napnvkB/view?usp=drive_link)
+- LinkedIn: https://drive.google.com/file/d/1rtJ9J5WoFs4yyV11Ik6-NaoM7napnvkB/view?usp=drive_link
 - Email: subhanirsyaduddien@gmail.com
