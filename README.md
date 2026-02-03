@@ -1,30 +1,23 @@
-# Portfolio React (Vite + Tailwind)
+# Subhan Portfolio (Static)
 
-Portofolio modern (dark, glassy) berbasis React + Tailwind. Sudah ada:
-- Navbar (desktop + mobile) dengan efek glass saat scroll
-- Hero dengan efek typing (Typed.js)
-- Section About, Keahlian, Proyek, Kontak, Footer
-- Animasi on-scroll (AOS)
-- Data proyek/keahlian di file terpisah (mudah diedit)
+Portfolio web statis (HTML + Tailwind CDN) — siap di-deploy via GitHub Pages / Vercel / Netlify.
 
-## Cara jalanin
-1) Install Node.js (disarankan LTS)
-2) Di folder project ini:
+## Struktur
+- `index.html` — halaman utama
 
-```bash
-npm install
-npm run dev
-```
+## Jalankan lokal
+Cukup buka `index.html` di browser, atau pakai Live Server (VSCode).
 
-## Edit konten
-- `src/data/profile.js` untuk nama, deskripsi, link
-- `src/data/projects.js` untuk daftar proyek
-- `src/data/skills.js` untuk daftar keahlian
+## Deploy via GitHub Pages
+1. Buat repo baru di GitHub (misal: `subhan-portfolio`).
+2. Upload semua file (atau push via git).
+3. Masuk **Settings → Pages**
+4. Pada **Build and deployment** pilih:
+   - **Source:** Deploy from a branch
+   - **Branch:** `main` (atau `master`)
+   - **Folder:** `/ (root)`
+5. Simpan. Link website akan muncul di bagian Pages.
 
-## Build
-```bash
-npm run build
-npm run preview
-```
-
-Selamat ngoprek!
+## Catatan
+- Semua asset eksternal memakai CDN (Tailwind, Font Awesome, AOS, Typed.js).
+- Link penting bisa kamu edit cepat di komentar **QUICK LINKS** di bagian atas `index.html`.
