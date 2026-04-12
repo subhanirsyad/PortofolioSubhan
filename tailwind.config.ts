@@ -9,46 +9,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#080f1a",
-        surface: "#0d1829",
-        "surface-2": "#111e33",
-        border: "#1a2740",
-        accent: "#00ff88",
+        bg: "#0c0c0c",
+        "card-1": "#141414",
+        "card-2": "#1a1a1a",
+        border: "#222222",
+        accent: "#e8ff47",
         "text-primary": "#f5f5f5",
-        "text-muted": "#4a6080",
+        "text-muted": "#555555",
+        "text-muted-2": "#888888",
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "sans-serif"],
-        mono: ["var(--font-geist-mono)", "monospace"],
+        sans: ["var(--font-sora)", "sans-serif"],
       },
-      animation: {
-        "marquee": "marquee 30s linear infinite",
-        "blink": "blink 1s step-end infinite",
-        "scanline": "scanline 8s linear infinite",
-        "fade-up": "fadeUp 0.6s ease forwards",
-        "pulse-green": "pulseGreen 2s ease-in-out infinite",
-      },
-      keyframes: {
-        marquee: {
-          "0%": { transform: "translateX(0%)" },
-          "100%": { transform: "translateX(-50%)" },
-        },
-        blink: {
-          "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0" },
-        },
-        scanline: {
-          "0%": { transform: "translateY(-100%)" },
-          "100%": { transform: "translateY(100vh)" },
-        },
-        fadeUp: {
-          "0%": { opacity: "0", transform: "translateY(20px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
-        pulseGreen: {
-          "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0.4" },
-        },
+      borderRadius: {
+        "2xl": "16px",
+        "3xl": "24px",
       },
     },
   },

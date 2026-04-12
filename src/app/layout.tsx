@@ -1,34 +1,33 @@
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
+import { Sora } from "next/font/google";
 import "./globals.css";
+
+const sora = Sora({
+  subsets: ["latin"],
+  variable: "--font-sora",
+  weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Subhan Irsyaduddien — Data Scientist",
   description:
-    "Mathematics student at Universitas Indonesia. Data Science & Analytics focused — transforming raw data into models that matter.",
-  keywords: [
-    "Data Scientist",
-    "Machine Learning",
-    "Python",
-    "TensorFlow",
-    "Universitas Indonesia",
-  ],
+    "Mathematics student at Universitas Indonesia. Data Science & Analytics — building ML pipelines that work in the real world.",
+  keywords: ["Data Scientist", "Machine Learning", "Python", "TensorFlow", "Universitas Indonesia"],
   openGraph: {
     title: "Subhan Irsyaduddien — Data Scientist",
-    description:
-      "Mathematics student at Universitas Indonesia. Data Science & Analytics focused.",
+    description: "Mathematics student at Universitas Indonesia. Data Science & Analytics.",
     type: "website",
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html lang="en" className={sora.variable}>
       <body>{children}</body>
     </html>
   );
