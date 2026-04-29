@@ -3,13 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --bg: #080f1a;
-  --surface: #0d1829;
-  --surface-2: #111e33;
-  --border: #1a2740;
-  --accent: #00ff88;
-  --text-primary: #f5f5f5;
-  --text-muted: #4a6080;
+  --bg: #0a0f1e;
+  --surface: #0d1729;
+  --surface-2: #111e38;
+  --border: #1a2d4a;
+  --accent: #00d4ff;
+  --accent-dim: rgba(0, 212, 255, 0.08);
+  --accent-glow: rgba(0, 212, 255, 0.2);
+  --text-primary: #f0f4ff;
+  --text-muted: #4a6280;
+  --text-subtle: #6b7fa0;
 }
 
 * {
@@ -25,117 +28,61 @@ html {
 body {
   background-color: var(--bg);
   color: var(--text-primary);
-  font-family: var(--font-geist-sans), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Dot grid overlay */
-  background-image: radial-gradient(
-    circle,
-    rgba(26, 39, 64, 0.6) 1px,
-    transparent 1px
-  );
-  background-size: 24px 24px;
+  /* Dot grid (B) */
+  background-image: radial-gradient(circle, rgba(26, 45, 74, 0.55) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
-/* Scanline effect for data panel */
-.scanlines {
+/* Radial cyan glow per section (C) */
+.section-glow {
   position: relative;
   overflow: hidden;
 }
-
-.scanlines::after {
-  content: "";
+.section-glow::before {
+  content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgba(0, 255, 136, 0.04),
-    transparent
-  );
-  animation: scanline 6s linear infinite;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 320px;
+  background: radial-gradient(ellipse, rgba(0, 212, 255, 0.045) 0%, transparent 70%);
   pointer-events: none;
+  z-index: 0;
 }
-
-@keyframes scanline {
-  0% {
-    top: -10%;
-  }
-  100% {
-    top: 110%;
-  }
+.section-glow > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 4px;
-  height: 4px;
 }
-
 ::-webkit-scrollbar-track {
   background: var(--bg);
 }
-
 ::-webkit-scrollbar-thumb {
   background: var(--border);
-  border-radius: 0;
+  border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-muted);
 }
 
 /* Selection */
 ::selection {
-  background: rgba(0, 255, 136, 0.15);
+  background: rgba(0, 212, 255, 0.2);
   color: var(--accent);
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+/* Scrollbar hide utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
-
-@keyframes pulseGreen {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
-}
-
-/* Mono utility */
-.font-mono-data {
-  font-family: var(--font-geist-mono), monospace;
-  font-variant-numeric: tabular-nums;
-}
-
-/* Thin border utility */
-.border-grid {
-  border: 1px solid var(--border);
-}
-
-/* Accent glow */
-.accent-glow {
-  box-shadow: 0 0 12px rgba(0, 255, 136, 0.2);
-}
-
-/* Marquee container */
-.marquee-wrapper {
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.marquee-inner {
-  display: inline-flex;
-  animation: marquee 35s linear infinite;
-}
-
-@keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

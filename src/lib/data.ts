@@ -1,88 +1,75 @@
 export const personal = {
-  name: "SUBHAN IRSYADUDDIEN",
-  title: "Data Scientist",
-  bio: "Mathematics student at Universitas Indonesia — turning messy data into models that actually work.",
+  name: "Subhan Irsyaduddien Alhaq",
+  tagline: "Extracting insight, building intelligence",
+  roles: ["Data Scientist", "AI Engineer"],
+  bio: "Mathematics student at Universitas Indonesia — building end-to-end ML pipelines across NLP, computer vision, time series, and anomaly detection. Strong in analytical thinking and reproducible results.",
   email: "subhanirsyaduddien@gmail.com",
   github: "https://github.com/subhanirsyad",
   linkedin: "https://www.linkedin.com/in/subhan-irsyaduddien-alhaq",
-  location: "Jakarta, Indonesia",
+  location: "South Jakarta, Indonesia",
 };
 
 export const stats = {
   gpa: "3.51",
-  projects: "7+",
+  projects: "8+",
   accuracy: "99%",
-  modelsTrained: 7,
 };
 
-export const skills = {
-  languages: ["Python", "R", "SQL", "MySQL"],
-  frameworks: ["TensorFlow", "Keras", "Scikit-learn", "SHAP", "SMOTE"],
-  tools: ["Pandas", "NumPy", "Tableau", "Jupyter"],
-  specializations: [
-    "NLP",
-    "Time Series",
-    "Computer Vision",
-    "Anomaly Detection",
-    "Statistical Analysis",
-    "Predictive Modeling",
-  ],
-};
-
-export const allTechBadges = [
-  "Python",
-  "R",
-  "SQL",
-  "MySQL",
-  "TensorFlow",
-  "Keras",
-  "Scikit-learn",
-  "SHAP",
-  "Pandas",
-  "NumPy",
-  "Tableau",
-  "LSTM",
-  "CNN",
-  "NLP",
-  "TF-IDF",
-  "SVM",
-  "SMOTE",
-  "Random Forest",
-  "Isolation Forest",
-  "Linear Regression",
-  "Computer Vision",
-  "TFLite",
-  "Jupyter",
-  "Git",
+export const skillGroups = [
+  {
+    label: "Languages & Platforms",
+    skills: ["Python", "R", "SQL", "MySQL", "Git", "Google Colab", "Jupyter"],
+  },
+  {
+    label: "ML & Deep Learning",
+    skills: ["TensorFlow", "Keras", "Scikit-learn", "SHAP", "Pandas", "NumPy", "Matplotlib", "Seaborn"],
+  },
+  {
+    label: "Tools & Deployment",
+    skills: ["Streamlit", "FastAPI", "Selenium", "Tableau", "Google Data Studio", "VS Code"],
+  },
+  {
+    label: "Specializations",
+    skills: ["NLP", "Computer Vision", "Time Series", "Anomaly Detection", "Sentiment Analysis", "Classification", "Statistical Modeling", "LangChain", "MLOps"],
+  },
 ];
 
-export type ExperienceType = "teaching" | "org" | "leadership" | "finance";
+export type ExperienceType = "work" | "org";
 
 export interface Experience {
   role: string;
   organization: string;
   period: string;
   type: ExperienceType;
+  bullets?: string[];
 }
 
 export const experiences: Experience[] = [
   {
     role: "Mathematics Tutor",
-    organization: "Bimbingan Alumni",
-    period: "Nov 2025 – Present",
-    type: "teaching",
-  },
-  {
-    role: "Assistant Lecturer, Calculus",
-    organization: "Universitas Indonesia",
-    period: "Sep – Dec 2025",
-    type: "teaching",
-  },
-  {
-    role: "Mathematics Tutor",
     organization: "Tutorin Math",
     period: "May 2025 – Present",
-    type: "teaching",
+    type: "work",
+    bullets: [
+      "Designed 20+ learning modules for Calculus, TKA, and CPNS TIU programs",
+      "Adapted teaching strategies to diagnose common errors and improve accuracy",
+    ],
+  },
+  {
+    role: "Teaching Assistant — Calculus",
+    organization: "Universitas Indonesia",
+    period: "Sep – Dec 2025",
+    type: "work",
+    bullets: [
+      "Supported course delivery for 40+ students in research-based learning",
+      "Graded assignments and coordinated with TA team on rubric alignment",
+    ],
+  },
+  {
+    role: "Head of Academic Division",
+    organization: "HMD Matematika FMIPA UI",
+    period: "Apr 2025 – Present",
+    type: "org",
   },
   {
     role: "Steering Committee",
@@ -91,28 +78,22 @@ export const experiences: Experience[] = [
     type: "org",
   },
   {
-    role: "Head of Academic Dept.",
-    organization: "HMD Matematika FMIPA UI",
-    period: "Mar 2025 – Present",
-    type: "leadership",
-  },
-  {
-    role: "Staff, Academic Division",
-    organization: "HMD Matematika FMIPA UI",
-    period: "Mar 2024 – Feb 2025",
-    type: "leadership",
+    role: "Competition Coordinator",
+    organization: "UI Science Olympiad",
+    period: "Jun – Nov 2024",
+    type: "org",
   },
   {
     role: "Treasurer Controller",
     organization: "Ksatria MIPA 2024",
     period: "Jul – Nov 2024",
-    type: "finance",
+    type: "org",
   },
   {
-    role: "Competition Coordinator",
-    organization: "UI Science Olympiad",
-    period: "Jun – Nov 2024",
-    type: "leadership",
+    role: "Staff — Academic Division",
+    organization: "HMD Matematika FMIPA UI",
+    period: "Mar 2024 – Feb 2025",
+    type: "org",
   },
   {
     role: "External Relations Staff",
@@ -120,115 +101,109 @@ export const experiences: Experience[] = [
     period: "Jun – Oct 2024",
     type: "org",
   },
-  {
-    role: "Intern",
-    organization: "HMD Matematika FMIPA UI",
-    period: "Aug 2023 – Feb 2024",
-    type: "org",
-  },
-  {
-    role: "Competition Division Staff",
-    organization: "LOGIKA UI 2024",
-    period: "Oct – Dec 2023",
-    type: "org",
-  },
-  {
-    role: "Project Officer",
-    organization: "Salam Universitas Indonesia",
-    period: "Oct – Dec 2023",
-    type: "org",
-  },
 ];
-
-export type AccentColor =
-  | "amber"
-  | "rose"
-  | "orange"
-  | "teal"
-  | "sky"
-  | "emerald"
-  | "violet";
 
 export interface Project {
   id: string;
   name: string;
   description: string;
+  longDescription: string;
   tech: string[];
   github?: string;
   demo?: string;
-  accent: AccentColor;
+  documentPdfUrl?: string;
+  gradient: string;
 }
 
 export const projects: Project[] = [
   {
-    id: "safebites",
-    name: "SafeBites",
+    id: "gopay-sentiment",
+    name: "GoPay Sentiment Analysis",
     description:
-      "SQL database for grocery products with allergen filtering — enabling safe meal planning at scale.",
-    tech: ["MySQL", "SQL", "Vercel"],
-    github: "https://github.com/subhanirsyad/safebites-sql1",
-    demo: "https://safebites-sql1.vercel.app",
-    accent: "amber",
-  },
-  {
-    id: "sentiment",
-    name: "Play Store Sentiment Analysis",
-    description:
-      "NLP pipeline for Indonesian app review classification using TF-IDF vectorization and SVM.",
-    tech: ["Python", "TF-IDF", "SVM", "NLP"],
-    github: "https://github.com/subhanirsyad/sentiment-analysis",
-    accent: "rose",
-  },
-  {
-    id: "bitcoin",
-    name: "Bitcoin Forecast Pipeline",
-    description:
-      "LSTM + Attention architecture for BTC time-series price forecasting with multi-step horizons.",
-    tech: ["TensorFlow", "Keras", "LSTM", "Attention"],
-    github: "https://github.com/subhanirsyad/bitcoin-forecast",
-    accent: "orange",
-  },
-  {
-    id: "animal",
-    name: "Animal Image Classifier",
-    description:
-      "10-class CNN image classifier exported to TFLite for edge deployment — trained on custom dataset.",
-    tech: ["TensorFlow", "CNN", "TFLite", "Computer Vision"],
-    github: "https://github.com/subhanirsyad/animal-image-clasifier",
-    accent: "teal",
+      "Sentiment analysis dashboard for GoPay Google Play reviews using IndoBERT fine-tuning and BERTopic topic modeling.",
+    longDescription:
+      "Built a full NLP pipeline to analyze user sentiment on GoPay's Google Play Store reviews. Fine-tuned IndoBERT for sentiment classification and applied BERTopic for unsupervised topic discovery. The results are visualized through an interactive Streamlit dashboard showing sentiment trends and emerging complaint topics.",
+    tech: ["Python", "IndoBERT", "BERTopic", "Streamlit", "NLP", "Transformers"],
+    github: "https://github.com/subhanirsyad/gopay-sentiment-analysis",
+    gradient: "from-purple-900/60 to-indigo-900/60",
   },
   {
     id: "cloud",
     name: "Cloud Data Security",
     description:
-      "UEBA anomaly detection system using Isolation Forest to identify suspicious cloud access patterns.",
-    tech: ["Python", "Isolation Forest", "UEBA", "Unsupervised ML"],
-    accent: "sky",
+      "UEBA anomaly detection system using Isolation Forest + SHAP to identify suspicious cloud access patterns.",
+    longDescription:
+      "Analyzed cloud storage security risk by modeling user behavior from activity logs. Engineered daily per-user behavioral features from raw event logs, then built an unsupervised anomaly detection pipeline using Isolation Forest. Used Tree SHAP for model interpretability to identify the most influential behavior signals.",
+    tech: ["Python", "Isolation Forest", "SHAP", "Unsupervised ML", "Cybersecurity"],
+    github: "https://github.com/subhanirsyad/anomaly-detection",
+    documentPdfUrl: "https://github.com/subhanirsyad/anomaly-detection/raw/main/cloud%20data%20security%20risk.pdf",
+    gradient: "from-cyan-900/60 to-blue-900/60",
+  },
+  {
+    id: "animal",
+    name: "Animal Image Classifier",
+    description:
+      "10-class CNN image classifier exported to TFLite for edge deployment, deployed via Streamlit Cloud.",
+    longDescription:
+      "Trained a convolutional neural network to classify 10 animal categories with high accuracy. The model was exported to TensorFlow Lite (TFLite) format for lightweight edge deployment. Includes a full training notebook and a Streamlit web app for live inference.",
+    tech: ["TensorFlow", "CNN", "TFLite", "Streamlit", "Computer Vision"],
+    github: "https://github.com/subhanirsyad/animal-image-clasifier",
+    gradient: "from-teal-900/60 to-emerald-900/60",
   },
   {
     id: "nutrition",
-    name: "Nutrition Classification",
+    name: "Nutritional Status Classification",
     description:
-      "ANN vs. Random Forest comparison for stunting risk classification — 99% accuracy with SMOTE balancing.",
-    tech: ["Python", "ANN", "Random Forest", "SMOTE"],
-    accent: "emerald",
+      "ANN vs. Random Forest comparison for toddler stunting risk classification — 99% accuracy with SMOTE.",
+    longDescription:
+      "Multi-class classification project to predict toddler nutritional status (stunting risk) using anthropometric features. Compared Random Forest and ANN (MLPClassifier) with SMOTE for class imbalance and GridSearchCV for hyperparameter tuning. Evaluated with Accuracy, ROC-AUC, and Confusion Matrix — achieving ~99% accuracy after tuning.",
+    tech: ["Python", "Scikit-learn", "ANN", "Random Forest", "SMOTE", "GridSearchCV"],
+    github: "https://github.com/subhanirsyad/nutritional-status-classification",
+    gradient: "from-emerald-900/60 to-green-900/60",
+  },
+  {
+    id: "sentiment",
+    name: "Indonesian Sentiment Analysis",
+    description:
+      "Streamlit NLP app classifying Indonesian text sentiment using TF-IDF vectorization and SVM.",
+    longDescription:
+      "Built a sentiment analysis pipeline for Indonesian-language text using TF-IDF vectorization and a Support Vector Machine classifier. Deployed as an interactive Streamlit app where users can input text and receive real-time sentiment predictions.",
+    tech: ["Python", "TF-IDF", "SVM", "Streamlit", "NLP"],
+    github: "https://github.com/subhanirsyad/sentiment-analysis",
+    gradient: "from-rose-900/60 to-pink-900/60",
+  },
+  {
+    id: "bitcoin",
+    name: "Bitcoin Forecast",
+    description:
+      "LSTM + Attention architecture for BTC time-series price forecasting with multi-step horizons.",
+    longDescription:
+      "Developed a time-series forecasting model for Bitcoin price prediction using LSTM networks with an attention mechanism. Implemented multi-step horizon forecasting and evaluated with standard regression metrics.",
+    tech: ["Python", "TensorFlow", "LSTM", "Attention", "Time Series"],
+    github: "https://github.com/subhanirsyad/bitcoin-forecast",
+    gradient: "from-orange-900/60 to-amber-900/60",
   },
   {
     id: "house",
-    name: "House Price Prediction",
+    name: "House Price Regression",
     description:
-      "Multiple linear regression model with 7 predictors for Jakarta housing market price estimation.",
-    tech: ["R", "Linear Regression", "Statistics"],
-    accent: "violet",
+      "Multiple linear regression model with stepwise selection and full statistical assumption testing.",
+    longDescription:
+      "Built and validated a multiple linear regression model to predict house prices using 1,000 observations and 7 predictors in R. Applied stepwise regression and nested-model ANOVA for feature selection. Verified all classical regression assumptions: linearity, independence (Durbin–Watson), homoskedasticity (Breusch–Pagan), normality (Shapiro–Wilk), and multicollinearity (VIF).",
+    tech: ["R", "Linear Regression", "ANOVA", "Statistical Modeling"],
+    github: "https://github.com/subhanirsyad/house-price-regression",
+    gradient: "from-violet-900/60 to-purple-900/60",
+  },
+  {
+    id: "safebites",
+    name: "SafeBites",
+    description:
+      "Allergy-safe food finder using SQL database with allergen keyword filtering from Nutritionix Grocery Brands.",
+    longDescription:
+      "Built a SQL-powered food safety tool that lets users find grocery products safe for specific dietary restrictions. Uses allergen keyword filtering against a curated database sourced from Nutritionix Grocery Brands.",
+    tech: ["MySQL", "SQL", "HTML"],
+    github: "https://github.com/subhanirsyad/safebites-sql1",
+    demo: "https://safebites-sql1.vercel.app",
+    gradient: "from-sky-900/60 to-blue-900/60",
   },
 ];
-
-export const accentMap: Record<AccentColor, { border: string; text: string; glow: string }> = {
-  amber:   { border: "border-amber-500",   text: "text-amber-400",   glow: "hover:border-amber-400/80 hover:shadow-[0_0_16px_rgba(245,158,11,0.2)]" },
-  rose:    { border: "border-rose-500",    text: "text-rose-400",    glow: "hover:border-rose-400/80 hover:shadow-[0_0_16px_rgba(244,63,94,0.2)]" },
-  orange:  { border: "border-orange-500",  text: "text-orange-400",  glow: "hover:border-orange-400/80 hover:shadow-[0_0_16px_rgba(249,115,22,0.2)]" },
-  teal:    { border: "border-teal-500",    text: "text-teal-400",    glow: "hover:border-teal-400/80 hover:shadow-[0_0_16px_rgba(20,184,166,0.2)]" },
-  sky:     { border: "border-sky-500",     text: "text-sky-400",     glow: "hover:border-sky-400/80 hover:shadow-[0_0_16px_rgba(14,165,233,0.2)]" },
-  emerald: { border: "border-emerald-500", text: "text-emerald-400", glow: "hover:border-emerald-400/80 hover:shadow-[0_0_16px_rgba(16,185,129,0.2)]" },
-  violet:  { border: "border-violet-500",  text: "text-violet-400",  glow: "hover:border-violet-400/80 hover:shadow-[0_0_16px_rgba(139,92,246,0.2)]" },
-};

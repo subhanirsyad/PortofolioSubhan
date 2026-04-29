@@ -2,16 +2,10 @@
 
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { experiences, type ExperienceType } from "@/lib/data";
+import { ChevronDown, ChevronUp } from "lucide-react";
+import { experiences } from "@/lib/data";
 
-const typeConfig: Record<ExperienceType, { label: string; color: string }> = {
-  teaching:  { label: "TEACHING",  color: "text-sky-400 border-sky-900" },
-  org:       { label: "ORG",       color: "text-[#4a6080] border-[#1a2740]" },
-  leadership:{ label: "LEADERSHIP",color: "text-emerald-400 border-emerald-900" },
-  finance:   { label: "FINANCE",   color: "text-amber-400 border-amber-900" },
-};
-
-const DEFAULT_SHOW = 5;
+const DEFAULT_SHOW = 3;
 
 export default function Experience() {
   const [expanded, setExpanded] = useState(false);
@@ -21,90 +15,96 @@ export default function Experience() {
   const visible = expanded ? experiences : experiences.slice(0, DEFAULT_SHOW);
 
   return (
-    <section id="experience" className="border-b border-[#1a2740]">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Section header */}
-        <div className="h-12 flex items-center border-b border-[#1a2740]">
-          <span className="font-mono text-[10px] tracking-widest text-[#4a6080]">
-            03 / <span className="text-[#f5f5f5]">EXPERIENCE</span>
-          </span>
-        </div>
+    <section id="experience" className="py-24 border-t border-[#1a2d4a]/60 section-glow">
+      <div className="max-w-6xl mx-auto px-6" ref={ref}>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.4 }}
+          className="text-xs font-semibold text-[#00d4ff] tracking-widest uppercase mb-4"
+        >
+          Experience
+        </motion.p>
 
-        <div className="py-16" ref={ref}>
-          {/* Table header */}
-          <div className="grid grid-cols-12 border-b border-[#1a2740] pb-2 mb-0 hidden md:grid">
-            <div className="col-span-4 font-mono text-[10px] tracking-widest text-[#4a6080] uppercase">
-              Role
-            </div>
-            <div className="col-span-4 font-mono text-[10px] tracking-widest text-[#4a6080] uppercase">
-              Organization
-            </div>
-            <div className="col-span-3 font-mono text-[10px] tracking-widest text-[#4a6080] uppercase">
-              Period
-            </div>
-            <div className="col-span-1 font-mono text-[10px] tracking-widest text-[#4a6080] uppercase text-right">
-              Type
-            </div>
-          </div>
+        <motion.h2
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+          className="text-3xl font-bold text-[#f0f4ff] mb-12"
+        >
+          Background
+        </motion.h2>
 
-          {/* Rows */}
-          <div>
-            {visible.map((exp, i) => {
-              const tc = typeConfig[exp.type];
-              return (
-                <motion.div
-                  key={`${exp.organization}-${i}`}
-                  initial={{ opacity: 0 }}
-                  animate={inView ? { opacity: 1 } : {}}
-                  transition={{ duration: 0.4, delay: 0.04 + i * 0.06 }}
-                  className="grid grid-cols-12 py-4 border-b border-[#1a2740] group hover:bg-[#0d1829] transition-colors duration-150 -mx-4 px-4"
-                >
-                  {/* Role */}
-                  <div className="col-span-12 md:col-span-4 mb-1 md:mb-0">
-                    <span className="text-[#f5f5f5] text-sm group-hover:text-[#00ff88] transition-colors duration-150">
-                      {exp.role}
-                    </span>
-                  </div>
+        {/* Timeline */}
+        <div className="relative">
+          {/* Vertical line */}
+          <div className="absolute left-[6px] top-2 bottom-2 w-px bg-[#1a2d4a]" />
 
-                  {/* Organization */}
-                  <div className="col-span-12 md:col-span-4 mb-1 md:mb-0">
-                    <span className="text-[#4a6080] text-sm">{exp.organization}</span>
-                  </div>
-
-                  {/* Period */}
-                  <div className="col-span-8 md:col-span-3">
-                    <span className="font-mono text-[11px] text-[#4a6080] tabular-nums">
-                      {exp.period}
-                    </span>
-                  </div>
-
-                  {/* Type tag */}
-                  <div className="col-span-4 md:col-span-1 flex justify-end items-start md:items-center">
-                    <span
-                      className={`font-mono text-[9px] border px-1.5 py-0.5 tracking-widest uppercase ${tc.color}`}
-                    >
-                      {tc.label}
-                    </span>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          {/* Expand toggle */}
-          {experiences.length > DEFAULT_SHOW && (
-            <div className="mt-6">
-              <button
-                onClick={() => setExpanded((e) => !e)}
-                className="font-mono text-[11px] text-[#4a6080] hover:text-[#f5f5f5] transition-colors duration-150 tracking-widest uppercase group"
+          <div className="space-y-8">
+            {visible.map((exp, i) => (
+              <motion.div
+                key={`${exp.organization}-${i}`}
+                initial={{ opacity: 0, x: -12 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.45, delay: 0.05 + i * 0.08 }}
+                className="relative flex gap-6 pl-8"
               >
-                {expanded
-                  ? `↑ SHOW LESS`
-                  : `↓ SHOW ${experiences.length - DEFAULT_SHOW} MORE`}
-              </button>
-            </div>
-          )}
+                {/* Timeline dot */}
+                <div
+                  className={`absolute left-0 top-1.5 w-3 h-3 rounded-full border-2 shrink-0 transition-colors duration-200 ${
+                    exp.type === "work"
+                      ? "bg-[#00d4ff] border-[#00d4ff] shadow-[0_0_8px_rgba(0,212,255,0.4)]"
+                      : "bg-[#0a0f1e] border-[#1a2d4a]"
+                  }`}
+                />
+
+                {/* Content */}
+                <div className="flex-1 min-w-0 pb-2">
+                  <div className="flex items-start justify-between gap-4 flex-wrap">
+                    <div>
+                      <p className="text-[#f0f4ff] font-semibold text-sm leading-snug">
+                        {exp.role}
+                      </p>
+                      <p className="text-[#4a6280] text-xs mt-0.5">{exp.organization}</p>
+                    </div>
+                    <span className="text-[#4a6280] text-xs shrink-0 mt-0.5">{exp.period}</span>
+                  </div>
+
+                  {exp.bullets && (
+                    <ul className="mt-2.5 space-y-1.5">
+                      {exp.bullets.map((b, bi) => (
+                        <li key={bi} className="flex items-start gap-2 text-xs text-[#4a6280] leading-relaxed">
+                          <span className="text-[#00d4ff] mt-0.5 shrink-0">·</span>
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
+
+        {experiences.length > DEFAULT_SHOW && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.4, delay: 0.3 }}
+            className="mt-8 pl-8"
+          >
+            <button
+              onClick={() => setExpanded((e) => !e)}
+              className="flex items-center gap-2 text-sm text-[#4a6280] hover:text-[#f0f4ff] transition-colors duration-200 font-medium"
+            >
+              {expanded ? (
+                <><ChevronUp size={16} /> Show less</>
+              ) : (
+                <><ChevronDown size={16} /> Show {experiences.length - DEFAULT_SHOW} more</>
+              )}
+            </button>
+          </motion.div>
+        )}
       </div>
     </section>
   );
