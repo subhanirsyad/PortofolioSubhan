@@ -205,43 +205,45 @@ export default function Projects() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="projects" className="py-24 border-t border-[#1a2d4a]/60 section-glow">
-      <div className="max-w-6xl mx-auto px-6" ref={ref}>
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.4 }}
-          className="text-xs font-semibold text-[#00d4ff] tracking-widest uppercase mb-4"
-        >
-          Projects
-        </motion.p>
-
-        <div className="flex items-end justify-between mb-12">
-          <motion.span
+    <>
+      <section id="projects" className="py-24 border-t border-[#1a2d4a]/60 section-glow">
+        <div className="max-w-6xl mx-auto px-6" ref={ref}>
+          <motion.p
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.4, delay: 0.1 }}
-            className="text-[#4a6280] text-sm"
+            transition={{ duration: 0.4 }}
+            className="text-xs font-semibold text-[#00d4ff] tracking-widest uppercase mb-4"
           >
-            {projects.length} projects
-          </motion.span>
-        </div>
+            Projects
+          </motion.p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {projects.map((project, i) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              index={i}
-              onClick={() => setSelected(project)}
-            />
-          ))}
+          <div className="flex items-end justify-between mb-12">
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="text-[#4a6280] text-sm"
+            >
+              {projects.length} projects
+            </motion.span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {projects.map((project, i) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                index={i}
+                onClick={() => setSelected(project)}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
 
       {selected && (
         <ProjectModal project={selected} onClose={() => setSelected(null)} />
       )}
-    </section>
+    </>
   );
 }
