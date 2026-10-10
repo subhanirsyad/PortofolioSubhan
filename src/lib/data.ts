@@ -440,8 +440,15 @@ export const projects: Project[] = [
     kind: "Time series",
     summary:
       "Compared a baseline LSTM with a seq2seq LSTM with attention that forecasts 24 steps from the last 168, and wrapped both in a Streamlit app.",
-    finding: { value: "0.082 vs 0.112", label: "scaled test MAE, seq2seq vs baseline LSTM. The forecast itself is still a flat line." },
+    finding: { value: "0.082 vs 0.112", label: "scaled test MAE, seq2seq vs baseline LSTM. On the test window the forecast is still a flat line." },
     figures: [
+      {
+        src: "/projects/bitcoin-forecast/app-forecast.png",
+        width: 1440,
+        height: 900,
+        alt: "Bitcoin forecast app in a dark theme: last price 28,713.71 USDT on 19 October 2023, forecast 26,408.15 USDT for 24 hours later, down 8.03%. The chart shows 7 days of price and a dashed forecast that jumps up in the first hour and then falls in a near-straight line.",
+        caption: "The Streamlit app on the last 168 hours of October 2023. The forecast jumps 2.6% in the first hour, then falls in a near-straight line to 8% below the last price.",
+      },
       {
         src: "/projects/bitcoin-forecast/forecast.png",
         width: 989,
@@ -458,12 +465,13 @@ export const projects: Project[] = [
     ],
     result: ["Seq2seq beat the baseline on scaled test MAE: 0.082 against 0.112."],
     limitations: [
-      "The plotted forecast is close to a flat line about 2,000 below the actual price. Beating a weak baseline on MAE does not make it a usable forecast.",
+      "On the test window (Fig. 02) the forecast is close to a flat line about 2,000 below the actual price. Beating a weak baseline on MAE does not make it a usable forecast.",
       "No naive last-value baseline was compared. That should be the first benchmark for any price forecast.",
+      "The app runs the model on prices up to October 2023, but it was trained on data up to August 2019, when the price peaked near 20,000. At 28,700 the input is outside anything the model has seen, which fits the odd jump-then-slide shape in Fig. 01.",
     ],
     stack: ["TensorFlow", "Keras", "pandas", "Streamlit"],
     links: [{ label: "Code", href: gh("bitcoin-forecast") }],
-    mockup: { style: "display", images: ["/projects/bitcoin-forecast/forecast.png"] },
+    mockup: { style: "browser", images: ["/projects/bitcoin-forecast/app-forecast-card.png"] },
   },
   {
     id: "nutrition-stunting",
