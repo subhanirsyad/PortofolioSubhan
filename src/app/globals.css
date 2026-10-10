@@ -86,3 +86,115 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Project card mockups: real images arranged on a navy stage */
+.thumb {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 45%, rgba(0, 212, 255, 0.1), transparent 70%),
+    radial-gradient(circle, rgba(26, 45, 74, 0.9) 1px, transparent 1px) 0 0 / 18px 18px,
+    var(--surface);
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mock-card:hover .thumb {
+  transform: scale(1.035);
+}
+.thumb img {
+  display: block;
+  height: auto;
+}
+
+.thumb--browser .frame {
+  position: absolute;
+  top: 13%;
+  left: 9%;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.85);
+}
+.thumb--display .frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 84%;
+  padding: 2.5%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  transform: translate(-50%, -50%) rotate(-2deg);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.85);
+}
+.frame__bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 14px;
+  padding: 0 8px;
+  border-bottom: 1px solid var(--border);
+}
+.frame__bar i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #2a4266;
+}
+.frame img {
+  width: 100%;
+}
+
+.thumb__poster,
+.thumb__back {
+  position: absolute;
+  border-radius: 3px;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.9);
+}
+.thumb__poster {
+  width: 38%;
+  top: 11%;
+  left: 13%;
+  transform: rotate(-3deg);
+}
+.thumb__back {
+  width: 64%;
+  top: 30%;
+  right: -10%;
+  transform: rotate(4deg);
+}
+
+.fan__item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 52%;
+  border-radius: 6px;
+  transform: translate(-50%, -50%) translateX(calc(var(--i) * 52%)) rotate(calc(var(--i) * 5deg));
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 28px 56px -20px rgba(0, 0, 0, 0.9);
+}
+.mock-card:hover .fan__item {
+  transform: translate(-50%, -50%) translateX(calc(var(--i) * 57%)) rotate(calc(var(--i) * 7deg));
+}
+
+.mock-cta {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s, transform 0.4s;
+}
+.mock-card:hover .mock-cta,
+.mock-card:focus-visible .mock-cta {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thumb,
+  .fan__item,
+  .mock-cta {
+    transition: none;
+  }
+}

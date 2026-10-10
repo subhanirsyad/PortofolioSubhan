@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, Download, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./BrandIcons";
 import NeuralBackground from "./NeuralBackground";
 import { personal } from "@/lib/data";
@@ -83,10 +83,13 @@ export default function Hero() {
             <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform duration-200" />
           </a>
           <a
-            href="#contact"
+            href={personal.cv}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full border border-[#1a2d4a] text-[#f0f4ff] font-semibold text-sm hover:border-[#00d4ff]/50 hover:text-[#00d4ff] transition-all duration-200"
           >
-            Get in Touch
+            <Download size={16} />
+            Download CV
           </a>
         </motion.div>
 

@@ -10,8 +10,6 @@ const highlights = [
   { value: stats.projects, label: "Projects", sub: "ML & Data Science" },
 ];
 
-const allSkills = skillGroups.flatMap((g) => g.skills);
-
 export default function About() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
@@ -29,7 +27,7 @@ export default function About() {
         </motion.p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Left — Bio + skills + education */}
+          {/* Left — Bio */}
           <div>
             <motion.h2
               initial={{ opacity: 0, y: 16 }}
@@ -44,7 +42,7 @@ export default function About() {
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="space-y-4 text-[#4a6280] leading-relaxed"
+              className="space-y-4 text-[#6b7fa0] leading-relaxed"
             >
               <p>
                 I&apos;m a Mathematics student at{" "}
@@ -63,56 +61,9 @@ export default function About() {
                 people as I do wrangling datasets.
               </p>
             </motion.div>
-
-            {/* Tech stack badges */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.5, delay: 0.22 }}
-              className="mt-7"
-            >
-              <p className="text-xs font-semibold text-[#4a6280] tracking-widest uppercase mb-3">
-                Tools & Skills
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {allSkills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="text-xs font-medium text-[#4a6280] border border-[#1a2d4a] px-3 py-1.5 rounded-full hover:border-[#00d4ff]/40 hover:text-[#00d4ff] transition-colors duration-200 cursor-default"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Education */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.35 }}
-              className="mt-8 space-y-3"
-            >
-              <div className="flex items-start gap-3 p-4 rounded-xl bg-[#0d1729] border border-[#1a2d4a] hover:border-[#00d4ff]/30 transition-colors duration-200">
-                <GraduationCap size={18} className="text-[#00d4ff] mt-0.5 shrink-0" />
-                <div>
-                  <p className="text-[#f0f4ff] font-semibold text-sm">Bachelor of Mathematics</p>
-                  <p className="text-[#4a6280] text-xs mt-0.5">Universitas Indonesia · GPA 3.51 · 2023 – 2027</p>
-                  <p className="text-[#4a6280] text-xs mt-1">Mathematical Modeling · Data Science · Linear Models</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3 p-4 rounded-xl bg-[#0d1729] border border-[#1a2d4a] hover:border-[#00d4ff]/30 transition-colors duration-200">
-                <BrainCircuit size={18} className="text-[#00d4ff] mt-0.5 shrink-0" />
-                <div>
-                  <p className="text-[#f0f4ff] font-semibold text-sm">Mastering AI Engineer</p>
-                  <p className="text-[#4a6280] text-xs mt-0.5">Non-Formal Education</p>
-                  <p className="text-[#4a6280] text-xs mt-1">ML · Deep Learning · NLP · Computer Vision · LangChain · MLOps</p>
-                </div>
-              </div>
-            </motion.div>
           </div>
 
-          {/* Right — Stats */}
+          {/* Right — Stats, education, availability */}
           <div className="flex flex-col gap-4 content-start">
             <div className="grid grid-cols-2 gap-4">
               {highlights.map((h, i) => (
@@ -132,6 +83,31 @@ export default function About() {
               ))}
             </div>
 
+            {/* Education */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.35 }}
+              className="space-y-3"
+            >
+              <div className="flex items-start gap-3 p-4 rounded-xl bg-[#0d1729] border border-[#1a2d4a] hover:border-[#00d4ff]/30 transition-colors duration-200">
+                <GraduationCap size={18} className="text-[#00d4ff] mt-0.5 shrink-0" />
+                <div>
+                  <p className="text-[#f0f4ff] font-semibold text-sm">Bachelor of Mathematics</p>
+                  <p className="text-[#6b7fa0] text-xs mt-0.5">Universitas Indonesia · GPA 3.51 · 2023 – 2027</p>
+                  <p className="text-[#6b7fa0] text-xs mt-1">Mathematical Modeling · Data Science · Linear Models</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3 p-4 rounded-xl bg-[#0d1729] border border-[#1a2d4a] hover:border-[#00d4ff]/30 transition-colors duration-200">
+                <BrainCircuit size={18} className="text-[#00d4ff] mt-0.5 shrink-0" />
+                <div>
+                  <p className="text-[#f0f4ff] font-semibold text-sm">Mastering AI Engineer</p>
+                  <p className="text-[#6b7fa0] text-xs mt-0.5">Skill Academy · Dec 2023 – Dec 2024</p>
+                  <p className="text-[#6b7fa0] text-xs mt-1">ML · Deep Learning · NLP · Computer Vision · LangChain · MLOps</p>
+                </div>
+              </div>
+            </motion.div>
+
             {/* Open to work card */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -149,6 +125,35 @@ export default function About() {
             </motion.div>
           </div>
         </div>
+
+        {/* Tools & skills, grouped */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-16"
+        >
+          <p className="text-xs font-semibold text-[#6b7fa0] tracking-widest uppercase mb-4">
+            Tools & Skills
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {skillGroups.map((group) => (
+              <div key={group.label} className="p-5 rounded-2xl bg-[#0d1729] border border-[#1a2d4a]">
+                <h3 className="text-[#f0f4ff] font-semibold text-sm mb-3">{group.label}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {group.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="text-xs font-medium text-[#6b7fa0] border border-[#1a2d4a] bg-[#0a0f1e] px-2.5 py-1 rounded-full hover:border-[#00d4ff]/40 hover:text-[#00d4ff] transition-colors duration-200 cursor-default"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
